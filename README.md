@@ -41,6 +41,10 @@ This project is to build an OCR for Fraktur typefaces.
     * Ensemble methods?
     * Conext-based classification.
 
+# Requirements
+
+Initially, the frakturOCR will be using [Tesseract](https://github.com/tesseract-ocr/tesseract) by Google. Download it or clone it from its corresponding repository in GitHub. Just follow the [installing instructions](https://github.com/tesseract-ocr/tesseract/wiki) for your corresponding OS.
+
 # References
 
 ## Online
