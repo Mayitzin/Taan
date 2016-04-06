@@ -45,6 +45,8 @@ This project is to build an OCR for Fraktur typefaces.
 
 Initially, the frakturOCR will be using [Tesseract](https://github.com/tesseract-ocr/tesseract) by Google. Download it or clone it from its corresponding repository in GitHub. Just follow the [installing instructions](https://github.com/tesseract-ocr/tesseract/wiki) for your corresponding OS.
 
+The [library of the University of Mannheim](http://digi.bib.uni-mannheim.de/) already uses Tesseract on old German newspapers and even prepared an installer for Windows. The Windows installer for version 3.05 of Tesseract can be downloaded from their [GitHub repository](https://github.com/UB-Mannheim/tesseract/wiki) or the [University website](http://digi.bib.uni-mannheim.de/tesseract/).
+
 # References
 
 ## Online
