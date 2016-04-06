@@ -9,12 +9,12 @@ www.mayitzin.com
 import sys
 import subprocess
 
-input = "page001.png"
+fileName = "page001.png"
 output = "page001"
 
 # Read extra parameters
 if len(sys.argv) >= 2:
-    input = sys.argv[1]
-    output = input[:-4]
+    fileName = sys.argv[1]
+    output = fileName[:-4]
 
-subprocess.call(["tesseract", input, output, "-l deu-frak"])
+subprocess.call(["tesseract", fileName, output, "-l", "deu-frak"])
