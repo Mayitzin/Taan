@@ -47,6 +47,8 @@ Initially, the frakturOCR will be using [Tesseract](https://github.com/tesseract
 
 The [library of the University of Mannheim](http://digi.bib.uni-mannheim.de/) already uses Tesseract on old German newspapers and even prepared an installer for Windows. The Windows installer for version 3.05 of Tesseract can be downloaded from their [GitHub repository](https://github.com/UB-Mannheim/tesseract/wiki) or the [University website](http://digi.bib.uni-mannheim.de/tesseract/).
 
+You can also build it, for convenience, as nicely explained by Erwin Bantilan in [his blog](http://gensanblog.com/2016/01/28/how-to-compile-tesseract-git-project-on-windows/).
+
 # References
 
 ## Online
