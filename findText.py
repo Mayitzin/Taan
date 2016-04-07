@@ -16,13 +16,13 @@ import numpy as np
 page = scimg.imread('page001.png', flatten=True)
 
 # Filter image
-sharpened_page = scimg.filters.gaussian_laplace(page, 1.0)
+sharpened_page = scimg.filters.gaussian_laplace(page, 0.1)
 
 # Show images
 plt.subplot(1,2,1)
-plt.imshow(page)
+plt.imshow(page, cmap='Greys')
 plt.subplot(1,2,2)
-plt.imshow(sharpened_page)
+plt.imshow(sharpened_page, cmap='Greys')
 
 # Show image
 plt.show()
