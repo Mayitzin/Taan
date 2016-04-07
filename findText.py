@@ -11,13 +11,12 @@ import matplotlib.pyplot as plt
 import matplotlib.image as mpimg
 import scipy.ndimage as scimg
 import numpy as np
-# import skimage.filters.laplace as laplace
 
 # Load image
-page = scimg.imread('page001.png')
+page = scimg.imread('page001.png', flatten=True)
 
 # Filter image
-sharpened_page = scimg.filters.laplace(page)
+sharpened_page = scimg.filters.gaussian_laplace(page, 1.0)
 
 # Show images
 plt.subplot(1,2,1)
