@@ -20,8 +20,8 @@ I = rgb2gray(I);
 [m, n] = size(I);
 
 % Sharpening Filters
-f1 = fspecial('unsharp', 0.1);
-f2 = fspecial('unsharp', 0.9);
+f1 = fspecial('unsharp', 0.1)
+f2 = fspecial('unsharp', 0.9)
 
 % Sharped Images
 J1 = imfilter(I,f1);
@@ -84,7 +84,7 @@ end
 figure()
 % subplot(1,4,1)
 %     imshow(I);
-subplot(1,3,1)
+subplot(1,4,1)
     imshow(I); hold on
     plot(cs2(:,1),cs2(:,2), 'r*'); hold off
 %subplot(1,4,2) % Histogram of Pixels
@@ -96,11 +96,13 @@ subplot(1,3,1)
 %subplot(1,4,4)
 %    plot(gca, 1:m,wy, 'r-')
 %    set(gca,'view',[90 90])
-subplot(1,3,2)
+subplot(1,4,2)
+    imshow(f2)
+subplot(1,4,3)
     imshow(Idi3)
     hold on
     plot([x1, x2, x2, x1, x1],[y1, y1, y2, y2, y1],'r-')
     hold off
-subplot(1,3,3)
+subplot(1,4,4)
     plot(gca, 1:m,stops, 'r-')
     set(gca,'view',[90 90])
