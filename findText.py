@@ -25,6 +25,12 @@ print np.shape(page), "\n", np.min(page), "\n", np.max(page)
 sharpened_page = scimg.filters.gaussian_laplace(page, 1.0)
 print np.shape(sharpened_page), "\n", np.min(sharpened_page), "\n", np.max(sharpened_page)
 
+# Binarization of Image
+threshold = 0.1
+sharpened_page[sharpened_page>threshold] = 1.0
+sharpened_page[sharpened_page<threshold] = 0.0
+print np.shape(sharpened_page), "\n", np.min(sharpened_page), "\n", np.max(sharpened_page)
+
 # Show images
 plt.subplot(1,2,1)
 plt.imshow(page, cmap='Greys')
