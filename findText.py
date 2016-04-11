@@ -14,15 +14,15 @@ import scipy.signal as sig
 import numpy as np
 
 # Load image in gray-scale
-page = scimg.imread('page001.png', flatten=True)/255.0
+page = (255-scimg.imread('page001.png', flatten=True))/255.0
 print np.shape(page), "\n", np.min(page), "\n", np.max(page)
 
 # Filter image
-mask = np.array([[-0.090909, -0.818182, -0.090909],
-                 [-0.818182,  4.636364, -0.818182],
-                 [-0.090909, -0.818182, -0.090909]])
+# mask = np.array([[-0.090909, -0.818182, -0.090909],
+#                  [-0.818182,  4.636364, -0.818182],
+#                  [-0.090909, -0.818182, -0.090909]])
 # sharpened_page = scimg.filters.convolve(page, mask, mode='reflect')
-sharpened_page = scimg.filters.gaussian_laplace(page, 0.5)
+sharpened_page = scimg.filters.gaussian_laplace(page, 1.0)
 print np.shape(sharpened_page), "\n", np.min(sharpened_page), "\n", np.max(sharpened_page)
 
 # Show images
