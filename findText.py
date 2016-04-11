@@ -23,18 +23,25 @@ print np.shape(page), "\n", np.min(page), "\n", np.max(page)
 #                  [-0.090909, -0.818182, -0.090909]])
 # sharpened_page = scimg.filters.convolve(page, mask, mode='reflect')
 sharpened_page = scimg.filters.gaussian_laplace(page, 1.0)
-print np.shape(sharpened_page), "\n", np.min(sharpened_page), "\n", np.max(sharpened_page)
+min_sharp = np.min(sharpened_page)
+max_sharp = np.max(sharpened_page)
+print np.shape(sharpened_page), "\n", min_sharp, "\n", max_sharp
+
+# Histogram of Image
+hist = scimg.measurements.histogram(sharpened_page, min_sharp, max_sharp, 255)
 
 # Binarization of Image
-threshold = 0.1
+threshold = 0.004
 sharpened_page[sharpened_page>threshold] = 1.0
-sharpened_page[sharpened_page<threshold] = 0.0
+sharpened_page[sharpened_page<=threshold] = 0.0
 print np.shape(sharpened_page), "\n", np.min(sharpened_page), "\n", np.max(sharpened_page)
 
 # Show images
-plt.subplot(1,2,1)
+plt.subplot(1,3,1)
 plt.imshow(page, cmap='Greys')
-plt.subplot(1,2,2)
+plt.subplot(1,3,2)
+plt.plot(np.linspace(min_sharp, max_sharp, num=255),hist)
+plt.subplot(1,3,3)
 plt.imshow(sharpened_page, cmap='Greys')
 
 # Show image
