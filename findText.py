@@ -11,6 +11,7 @@ import matplotlib.pyplot as plt
 import matplotlib.image as mpimg
 import scipy.ndimage as scimg
 import scipy.signal as sig
+from scipy import misc
 import numpy as np
 import copy
 
@@ -23,7 +24,7 @@ print np.shape(page), "\n", np.min(page), "\n", np.max(page)
 #                  [-0.818182,  4.636364, -0.818182],
 #                  [-0.090909, -0.818182, -0.090909]])
 # sharpened_page = scimg.filters.convolve(page, mask, mode='reflect')
-sharpened_page = scimg.filters.gaussian_laplace(page, 1.0)
+sharpened_page = scimg.filters.gaussian_laplace(page, 0.85)
 min_sharp = np.min(sharpened_page)
 max_sharp = np.max(sharpened_page)
 print np.shape(sharpened_page), "\n", min_sharp, "\n", max_sharp
@@ -36,10 +37,13 @@ threshold = -0.004
 binary_img = copy.copy(sharpened_page)
 binary_img[binary_img>threshold] = max_sharp
 binary_img[binary_img<=threshold] = min_sharp
-binary_img[binary_img==max_sharp] = 1.0
-binary_img[binary_img==min_sharp] = 0.0
+binary_img[binary_img==max_sharp] = 0.0
+binary_img[binary_img==min_sharp] = 1.0
 print np.shape(binary_img), "\n", np.min(binary_img), "\n", np.max(binary_img)
 print 256.0/np.argmax(hist)
+
+# Save Image
+misc.imsave('outfile.png', binary_img)
 
 # Show images
 plt.subplot(1,4,1)
