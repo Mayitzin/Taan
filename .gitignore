@@ -1,0 +1,9 @@
+# Compiled source #
+###################
+*.exe
+*.o
+*.pyc
+
+# Packages #
+############
+octave-workspace
