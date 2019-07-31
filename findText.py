@@ -17,7 +17,7 @@ import copy
 
 # Load image in gray-scale
 page = (255-scimg.imread('page001.png', flatten=True))/255.0
-print np.shape(page), "\n", np.min(page), "\n", np.max(page)
+print(np.shape(page), "\n", np.min(page), "\n", np.max(page))
 
 # Filter image
 # mask = np.array([[-0.090909, -0.818182, -0.090909],
@@ -27,7 +27,7 @@ print np.shape(page), "\n", np.min(page), "\n", np.max(page)
 sharpened_page = scimg.filters.gaussian_laplace(page, 0.85)
 min_sharp = np.min(sharpened_page)
 max_sharp = np.max(sharpened_page)
-print np.shape(sharpened_page), "\n", min_sharp, "\n", max_sharp
+print(np.shape(sharpened_page), "\n", min_sharp, "\n", max_sharp)
 
 
 # Binarization of Image
@@ -37,7 +37,7 @@ binary_img[binary_img>threshold] = max_sharp
 binary_img[binary_img<=threshold] = min_sharp
 binary_img[binary_img==max_sharp] = 0.0
 binary_img[binary_img==min_sharp] = 1.0
-print np.shape(binary_img), "\n", np.min(binary_img), "\n", np.max(binary_img)
+print(np.shape(binary_img), "\n", np.min(binary_img), "\n", np.max(binary_img))
 
 # Save Image
 misc.imsave('outfile.png', binary_img)
