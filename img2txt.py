@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 """
-Tesseract OCR fraktur
+Tesseract OCR fraktur test
 
 @author: Mario Garcia
-www.mayitzin.com
+www.mariogc.com
 """
 
 import sys
@@ -20,16 +20,13 @@ with open(truth_file, "r", encoding="utf-8") as f:
 text = pytesseract.image_to_string(fileName, lang="deu_frak")
 ocr_lines = text.split('\n')
 
+num_words = 0
+num_wrong_words = 0
 if len(truth_lines) == len(ocr_lines):
     for idx, (tline, oline) in enumerate(zip(truth_lines, ocr_lines)):
-        tline = tline.replace(',', '')
-        tline = tline.replace('.', '')
         twords = tline.split()
-        # print(twords)
-        oline = oline.replace(',', '')
-        oline = oline.replace('.', '')
         owords = oline.split()
-        # print(owords)
-        wrong_words = [i for i, j in zip(twords, owords) if i != j]
-        if wrong_words:
-            print("Line {} has {} wrong words: {}".format(idx, len(wrong_words), " ".join(wrong_words)))
+        wrong_words = [i for i, j in zip(owords, twords) if i != j]
+        num_words += len(twords)
+        num_wrong_words += len(wrong_words)
+print("Accuracy: {:.4f} %".format(100.0*(1.0-(num_wrong_words/num_words))))
