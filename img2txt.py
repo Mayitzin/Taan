@@ -10,7 +10,6 @@ import sys
 import pytesseract
 
 fileName = "page001.png"
-# fileName = "outfile.png"
 output = "page001"
 
 truth_file = "truth_page001.txt"

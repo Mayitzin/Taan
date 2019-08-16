@@ -1,10 +1,6 @@
-# Fraktur OCR
+# T'aan
 
-This project is to build an OCR for Fraktur typefaces.
-
-* Should it use OCR Tesseract?
-* Should it use parts of it?
-* Should it be built from zero?
+This project intends to easily recognize characters in old writings and translate them to any other language.
 
 # Overview
 
@@ -21,40 +17,17 @@ This project is to build an OCR for Fraktur typefaces.
 8. Character normalization.
   * Moment based.
   * Contour Tracing/Analysis.
-9. Feature extraction.
-  * Anisometry.
-  * Ratio between height/width.
-  * Number of holes.
-  * From skeleton (after thinning).
-  * PCA for dimensionality reduction.
-  * etc.
-10. Classify character.
-  * Classification methods.
-    * Random trees.
-    * Support Vector Machines.
-    * kNNs.
-    * Multilayer Perceptron.
-    * Neural Networks.
-    * Convolutional Neural Networks.
-  * Optimization.
-    * Boosting.
-    * Ensemble methods?
-    * Conext-based classification.
 
 # Requirements
 
-Initially, the frakturOCR will be using [Tesseract](https://github.com/tesseract-ocr/tesseract) by Google. Download it or clone it from its corresponding repository in GitHub. Just follow the [installing instructions](https://github.com/tesseract-ocr/tesseract/wiki) for your corresponding OS.
+T'aan uses [Tesseract](https://github.com/tesseract-ocr/tesseract) by Google. Download it or clone it from its corresponding repository in GitHub. Follow the [installing instructions](https://github.com/tesseract-ocr/tesseract/wiki) for your corresponding OS.
 
-The [library of the University of Mannheim](http://digi.bib.uni-mannheim.de/) already uses Tesseract on old German newspapers and even prepared an installer for Windows. The Windows installer for version 3.05 of Tesseract can be downloaded from their [GitHub repository](https://github.com/UB-Mannheim/tesseract/wiki) or the [University website](http://digi.bib.uni-mannheim.de/tesseract/).
-
-You can also build it, for convenience, as nicely explained by Erwin Bantilan in [his blog](http://gensanblog.com/2016/01/28/how-to-compile-tesseract-git-project-on-windows/).
+The latest version already includes models to recognize the most common writing systems and languages.
 
 # References
 
 ## Online
 
-* [Fraktur](https://en.wikipedia.org/wiki/Fraktur). Resource from Wikipedia.
-* [Chart of Fraktur](http://www.library.yale.edu/cataloging/music/fraktur.htm). A chart with all the characters in English. It misses letters with umlaut.
 * [OCRchie: Modular Optical Character Recognition Software](http://www.cs.berkeley.edu/~fateman/kathey/ocrchie.html). An OCR software package created by Katherine Marsden, while a Computer Science graduate from the Univerity of Berkeley in 1996.
 * [Character Recognition by Feature Point Extraction](http://www.ccs.neu.edu/home/feneric/charrec.html). An old but entertaining approach to detect characters based on feature points created by Eric W. Brown of the Northeastern University in 1992.
 * [Optical Character Recognition](http://www.codeproject.com/Articles/476142/Optical-Character-Recognition). A short description of a simple OCR by Vijay Rajan Nadar using pixel counting and relative location.
@@ -67,12 +40,12 @@ You can also build it, for convenience, as nicely explained by Erwin Bantilan in
 
 ## Books and Articles
 
-* **Book**: M. Cheriet, N. Kharma, C. Liu and C. Suen. _Character Recognition Systems: A Guide for Students and Practitioners_. John Wiley & Sons. 2007.
-* **Book**: H. Bunke and P.S.P. Wang. _Handbook of Character Recognition and Document Image Analysis_. World Scientific Pub Co Inc. 1997.
-* **Book**: S.V. Rice, G. Nagy and T.A. Nartker. _Optical Character Recognition: An Illustrated Guide to the Frontier (The Springer International Series in Engineering and Computer Science)_. Springer. 1999.
-* **Book**: C. Steger, M. Ulrich and C. Wiedemann. _MAchine Vision: Algorithms and Applications_. Wiley-VCH. 2007.
-* **Book**: C.M. Bishop. _Neural Networks for Pattern Recognition (Advanced Texts in Econometrics_. Clarendon Press. 1st Edition. 1996.
-* **Book**: D.L. Baggio, S. Emami, D.M. Escrivá, K. Ievgen, N. Mahmood, J. Saragih, R. Shilkrot. _Mastering OpenCV with Practical Computer Vision Projects_. Packt Publishing. Pages 176-187. 2012.
+* M. Cheriet, N. Kharma, C. Liu and C. Suen. _Character Recognition Systems: A Guide for Students and Practitioners_. John Wiley & Sons. 2007.
+* H. Bunke and P.S.P. Wang. _Handbook of Character Recognition and Document Image Analysis_. World Scientific Pub Co Inc. 1997.
+* S.V. Rice, G. Nagy and T.A. Nartker. _Optical Character Recognition: An Illustrated Guide to the Frontier (The Springer International Series in Engineering and Computer Science)_. Springer. 1999.
+* C. Steger, M. Ulrich and C. Wiedemann. _Machine Vision: Algorithms and Applications_. Wiley-VCH. 2007.
+* C.M. Bishop. _Neural Networks for Pattern Recognition (Advanced Texts in Econometrics_. Clarendon Press. 1st Edition. 1996.
+* D.L. Baggio, S. Emami, D.M. Escrivá, K. Ievgen, N. Mahmood, J. Saragih, R. Shilkrot. _Mastering OpenCV with Practical Computer Vision Projects_. Packt Publishing. Pages 176-187. 2012.
 * J. Gllavata, R. Ewerth and B. Freisleben. [_A Robust Algorithm for Text Detection in Images_](http://saigo.googlecode.com/svn/trunk/papers/artigos1/globalthr.pdf). Proceedings of the 3rd International Symposium on Image and Signal Processing and Analysis 2003. Volume 2. Pages 611-616.
 * W. Huang., Z. Lin, J. Yang, and J. Wang. [_Text Localization in Natural Images using Stroke Feature Transform and Text Covariance Descriptors_](http://www.wlhuang.com/papers/whuang2013_iccv.pdf)_. IEEE International Conference on Computer Vision (ICCV), 2013.
 * L. Kang, Y. Li and D. Doermann. [_Orientation Robust Text Line Detection in Natural Images_](http://www.cv-foundation.org/openaccess/content_cvpr_2014/papers/Kang_Orientation_Robust_Text_2014_CVPR_paper.pdf). CVPR2014.
@@ -80,3 +53,11 @@ You can also build it, for convenience, as nicely explained by Erwin Bantilan in
 * O.D Trier, A.K. Jain and T. Taxt. [_Feature Extraction Methods for Character Recognition - A Survey_](http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.51.7439&rep=rep1&type=pdf). Patter Recognition. Volume 29. Issue 4. Pages 641-662. April 1996.
 * R. Lienhart and A. Wernicke. [_Localizing and Segmenting Text in Images and Videos_](http://www.lienhart.de/Prof._Dr._Rainer_Lienhart/Publications_files/lienhart-csvt2002.pdf). IEEE Transactions on Circuits and Systems for Video Technology. Volume 12. Issue 4. April 2002.
 * Y. Amit and D. Geman [_Shape Quantization and Recognition with Randomized Trees_](http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.102.5478&rep=rep1&type=pdf). Neural Computation. Volume 9. Pages 1545-1588. 1997.
+
+---
+
+## What is T'aan?
+
+T'aan means _language_ in Mayan language. In pre-hispanic [Mesoamerica](https://en.wikipedia.org/wiki/Mesoamerica) existed dozens of languages and hundreds of dialects, which difficulted the fast integration of the several nations. In order to ease their communication, specialized translators and interpreters were established. These interpreters could read the several scripts and codices and, thus, connect their communities.
+
+The Mayans of Yucatán used the word **T'aan** to name _language_, _conversation_, _to read aloud_, _word_ or _voice_. In short, everything that had to do with communication in any language belongs to the space of **T'aan**.
