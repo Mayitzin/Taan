@@ -1,32 +1,22 @@
-# T'aan
+<center><h1>T'aan</h1></center>
 
-This project intends to easily recognize characters in old writings and translate them to any other language.
+This project intends to easily recognize characters in old writings and automatically translate them to any other language.
 
-# Overview
+## Usage
 
-1. Read Image in gray-scale. If not in gray-scale then [transform it to gray-scale](https://en.wikipedia.org/wiki/Grayscale#Converting_color_to_grayscale) in terms of the CIE 1931.
-2. Identify Orientation. The direction of the lines with text must be aligned with the horizontal Axis of the image. Probably a binarization of the image is needed here to create a histogram.
-3. Rectify Image with an [affine Transformation](http://docs.opencv.org/doc/tutorials/imgproc/imgtrans/warp_affine/warp_affine.html), or [projective transformation](http://homepages.inf.ed.ac.uk/rbf/CVonline/LOCAL_COPIES/BEARDSLEY/node3.html) for severe cases.
-4. [Bilinear Interpolation](https://en.wikipedia.org/wiki/Bilinear_interpolation) (to avoid losing detail) with a Gaussian smoothing if needed.
-5. [Binarization](http://www.leptonica.com/binarization.html) of the image.
-6. Vertical dilation to join dots of 'i' and 'j', and umlauts.
-7. Segmentation of each character.
-  * Width is not constant.
-  * Specify possible dimensions (height and width).
-  * Dynamic estimation of dimensions.
-8. Character normalization.
-  * Moment based.
-  * Contour Tracing/Analysis.
+```
+python img2txt.py <input_file> <output_file>
+```
 
-# Requirements
+## Requirements
 
-T'aan uses [Tesseract](https://github.com/tesseract-ocr/tesseract) by Google. Download it or clone it from its corresponding repository in GitHub. Follow the [installing instructions](https://github.com/tesseract-ocr/tesseract/wiki) for your corresponding OS.
+* [Tesseract](https://github.com/tesseract-ocr/tesseract) by Google is used by T'aan to perform the OCR. Download it or clone it from its repository in GitHub. Follow the [installing instructions](https://github.com/tesseract-ocr/tesseract/wiki) for your corresponding OS. The latest version already includes models to recognize the most common writing systems and languages.
 
-The latest version already includes models to recognize the most common writing systems and languages.
+* The module [pdf2image](https://github.com/Belval/pdf2image), a wrapper of [poppler](https://poppler.freedesktop.org/), is required to transform a given PDF into images and then use Tesseract.
 
-# References
+## References
 
-## Online
+### Online
 
 * [OCRchie: Modular Optical Character Recognition Software](http://www.cs.berkeley.edu/~fateman/kathey/ocrchie.html). An OCR software package created by Katherine Marsden, while a Computer Science graduate from the Univerity of Berkeley in 1996.
 * [Character Recognition by Feature Point Extraction](http://www.ccs.neu.edu/home/feneric/charrec.html). An old but entertaining approach to detect characters based on feature points created by Eric W. Brown of the Northeastern University in 1992.
@@ -38,7 +28,7 @@ The latest version already includes models to recognize the most common writing 
 * [Fast C++: Bilinear Pixel Interpolation using SSE](http://fastcpp.blogspot.de/2011/06/bilinear-pixel-interpolation-using-sse.html). Explanation and code for a fast Bilinear interpolation implemented in C++.
 * [OpenCV Tutorials](http://docs.opencv.org/master/d9/df8/tutorial_root.html#gsc.tab=0). Set of basic OpenCV tutorials.
 
-## Books and Articles
+### Books and Articles
 
 * M. Cheriet, N. Kharma, C. Liu and C. Suen. _Character Recognition Systems: A Guide for Students and Practitioners_. John Wiley & Sons. 2007.
 * H. Bunke and P.S.P. Wang. _Handbook of Character Recognition and Document Image Analysis_. World Scientific Pub Co Inc. 1997.
@@ -58,6 +48,6 @@ The latest version already includes models to recognize the most common writing 
 
 ## What is T'aan?
 
-T'aan means _language_ in Mayan language. In pre-hispanic [Mesoamerica](https://en.wikipedia.org/wiki/Mesoamerica) existed dozens of languages and hundreds of dialects, which difficulted the fast integration of the several nations. In order to ease their communication, specialized translators and interpreters were established. These interpreters could read the several scripts and codices and, thus, connect their communities.
+T'aan means _language_ in Mayan. In pre-hispanic [Mesoamerica](https://en.wikipedia.org/wiki/Mesoamerica) existed dozens of languages and hundreds of dialects, which difficulted the fast integration of the several nations. In order to ease their communication, specialized translators and interpreters were established. These interpreters could read the several scripts and codices and, thus, connect their communities.
 
 The Mayans of Yucatán used the word **T'aan** to name _language_, _conversation_, _to read aloud_, _word_ or _voice_. In short, everything that had to do with communication in any language belongs to the space of **T'aan**.
